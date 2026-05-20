@@ -18,5 +18,7 @@ public class JobModel {
     @JsonProperty("nome")
     private String name;
 
+    @JsonProperty("preco")
     private Double preco;
+
 }

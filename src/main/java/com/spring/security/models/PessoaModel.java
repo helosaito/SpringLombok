@@ -3,6 +3,7 @@ package com.spring.security.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.util.List;
 
 @Entity
@@ -17,7 +18,8 @@ public class PessoaModel {
     @JsonProperty("cliente")
     private String nome;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonProperty("products")
     private List<JobModel> jobModelList;
+
 }
