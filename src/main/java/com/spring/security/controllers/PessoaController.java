@@ -3,9 +3,7 @@ package com.spring.security.controllers;
 import com.spring.security.models.PessoaModel;
 import com.spring.security.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -21,10 +19,8 @@ public class PessoaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PessoaModel> findById(@PathVariable Long id) {
-        return pessoaService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public PessoaModel findById(@PathVariable Long id) {
+        return pessoaService.findById(id);
     }
 
     @PostMapping
@@ -32,4 +28,3 @@ public class PessoaController {
         return pessoaService.criarPessoa(pessoaModel);
     }
 }
-
